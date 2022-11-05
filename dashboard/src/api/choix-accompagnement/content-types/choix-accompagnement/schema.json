@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "choix_accompagnements",
+  "info": {
+    "singularName": "choix-accompagnement",
+    "pluralName": "choix-accompagnements",
+    "displayName": "Choix Accompagnement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::prodect.prodect",
+      "mappedBy": "choix_accompagnements"
+    },
+    "fiche_technique_de_fabrication": {
+      "type": "json"
+    }
+  }
+}

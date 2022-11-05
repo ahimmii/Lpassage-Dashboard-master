@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_list_ingredients",
+  "info": {
+    "displayName": "Ingrédient",
+    "icon": "list-ol",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "unites": {
+      "type": "string"
+    },
+    "natures": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nature.nature"
+    }
+  }
+}

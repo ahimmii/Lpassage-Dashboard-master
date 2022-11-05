@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "natures",
+  "info": {
+    "singularName": "nature",
+    "pluralName": "natures",
+    "displayName": "Nature",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "ingredient_lists",
+  "info": {
+    "singularName": "ingredient-list",
+    "pluralName": "ingredient-lists",
+    "displayName": "Ingrédient List",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "list": {
+      "type": "dynamiczone",
+      "components": [
+        "ingredient-list.ingredient"
+      ]
+    }
+  }
+}

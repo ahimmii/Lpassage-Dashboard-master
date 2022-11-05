@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prodects",
+  "info": {
+    "singularName": "prodect",
+    "pluralName": "prodects",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "prodects"
+    },
+    "choix_accompagnements": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::choix-accompagnement.choix-accompagnement",
+      "inversedBy": "products"
+    },
+    "sauces": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sauce.sauce",
+      "inversedBy": "products"
+    },
+    "Fiche_technique_de_fabrication": {
+      "type": "json"
+    },
+    "juses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::jus.jus",
+      "inversedBy": "products"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "max"
+      ]
+    },
+    "maxChoixAccompagnement": {
+      "type": "integer"
+    },
+    "maxSauce": {
+      "type": "integer"
+    },
+    "maxJus": {
+      "type": "integer"
+    }
+  }
+}

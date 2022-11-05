@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_ingredient_ingredients",
+  "info": {
+    "displayName": "Ingrédient ",
+    "icon": "box-open",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "Quantites": {
+      "type": "decimal",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Légumes",
+        "Viande",
+        "Poulet",
+        "Pilon",
+        "Fruits",
+        "autre"
+      ],
+      "required": true
+    },
+    "prix_par_unit": {
+      "type": "decimal",
+      "required": true
+    },
+    "unit": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

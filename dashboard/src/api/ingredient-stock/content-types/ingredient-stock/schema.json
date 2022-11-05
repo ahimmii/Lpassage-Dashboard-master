@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ingredient_stocks",
+  "info": {
+    "singularName": "ingredient-stock",
+    "pluralName": "ingredient-stocks",
+    "displayName": "Ingrédient stock",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ingredient": {
+      "type": "dynamiczone",
+      "components": [
+        "ingredients-stock.ingredient"
+      ]
+    }
+  }
+}

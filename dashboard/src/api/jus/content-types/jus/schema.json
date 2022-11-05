@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "juses",
+  "info": {
+    "singularName": "jus",
+    "pluralName": "juses",
+    "displayName": "Jus",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::prodect.prodect",
+      "mappedBy": "juses"
+    },
+    "fiche_technique_de_fabrication": {
+      "type": "json"
+    }
+  }
+}

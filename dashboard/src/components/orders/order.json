@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_orders_orders",
+  "info": {
+    "displayName": "plat",
+    "icon": "layer-group",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "choix_accompagnements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::choix-accompagnement.choix-accompagnement"
+    },
+    "sauces": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sauce.sauce"
+    },
+    "fiche_technique_de_fabrication": {
+      "type": "json"
+    },
+    "product_id": {
+      "type": "biginteger"
+    },
+    "juses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jus.jus"
+    },
+    "imageURL": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "qte": {
+      "type": "integer"
+    }
+  }
+}
