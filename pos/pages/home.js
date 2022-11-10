@@ -327,7 +327,7 @@ export default function Home({ socket, connect }) {
 			Orders
 		)
 			.then((res) => {
-				console.log(res.data);
+				//console.log(res.data);
 				socket.emit('orderCreated', res.data);
 				setOrders([]);
 				setTypeOfOrderWin.off();
