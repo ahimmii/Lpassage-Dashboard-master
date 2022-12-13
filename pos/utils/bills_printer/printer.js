@@ -1,4 +1,4 @@
-const number_phone = ("+212 5 32 90 00 06");
+const number_phone = ("+212 8 08 51 23 87");
 	
 function print_bill(orders, profile) {
 	var myWindow = window.open("", "", "width=200,height=400");
@@ -36,23 +36,35 @@ function print_bill(orders, profile) {
 
 	myWindow.document.write(`
 			<style>
-				th, td {
-					border-bottom: 3px solid black;
-					text-align: center;
-				}
+			th {
+                border-bottom: 4px solid black;
+                text-align: center;
+            }
+            td {
+                border-bottom: 2px solid black;
+                text-align: center;
+            }
 			</style>
 			<div style='text-align: center;'>
-				<div style="font-size: 13px; display: flex; justify-content: center; align-items: center;">
-					<h1 style="font-size: 18px; padding-left: 6px;">L'PasSage</h1>
-					</div>
-				<p style="font-size: 15px; margin-top: 1px">
-					${number_phone}
-					</br>
-					81 bis, Boulevard Mohammed Zerktouni
-					</br>
-					(ex rue de cuny)
-					</br>
-					${d.toLocaleDateString() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()}</p>
+			<div style="font-size: 13px; display: flex; justify-content: center; align-items: center;">
+				<h1 style="font-size: 18px; padding-left: 6px;">L'PasSage</h1>
+			</div>
+			<p style="font-size: 15px; margin-top: 1px">
+			${number_phone}
+			</br>
+                	LOT 792, lotissement al karaouiyine
+                	</br>
+                	route Ain chkef Fes
+			</br>
+			${d.toLocaleDateString() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()}
+			</br>
+			${profile?.Username}
+			${ orders[0].placeDeConsomation[0].name == "Sur table" ? `
+			<div style="margin-top: 5px; font-size: 12px; font-weight: 800;">
+				<p>Num Table: ${orders[0].placeDeConsomation[0].tableId}</p>
+			</div> ` : ""
+			}
+			</p>
 			</div>
 			<div style="padding: 10px; border-radius: 10px; padding-top: 2px;">
 				<table style="width: 100%;">
@@ -64,9 +76,9 @@ function print_bill(orders, profile) {
 					${all_orders}
 					<tfoot style="font-size: 16px; font-weight: 800; border-bottom: 0;">
 						<tr>
-							<td style="border-bottom: 0;">Total: </td>
-							<td style="border-bottom: 0;">${orders.length}</td>
-							<td style="border-bottom: 0;">${total.toFixed(2)} DH</td>
+							<th style="padding: 5px">Total: </th>
+							<th style="padding: 5px">${orders.length}</th>
+							<th style="padding: 5px">${total.toFixed(2)} DH</th>
 						</tr>
 					</tfoot>
 				</table>
@@ -82,9 +94,9 @@ function print_bill(orders, profile) {
 				`
 						: ""
 				}
-				<div style="font-size: 19px; font-weight: 800; width: 100%; text-align: center;">
-					${profile?.Username}
-				</div>
+				<div style="font-size: 10px; font-weight: 800; width: 100%; text-align: center;">
+                	<p style="margin-bottom: 5px;"> MERCI DE VOTRE VISITE </p>
+           		</div>
 			</div>
 		`);
 	myWindow.document.close();

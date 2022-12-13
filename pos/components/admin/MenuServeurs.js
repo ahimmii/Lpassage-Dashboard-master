@@ -19,6 +19,7 @@ function MenuServeurs({natures, serveur, setServeur}) {
 				<MenuItem color="#4a5568" fontWeight="100" onClick={() => {setServeur("ALL")}} fontSize="14px">ALL</MenuItem>
 				{
 					natures?.map((e, i) => {
+						// console.log(natures)
 						return (
 							<MenuItem onClick={() => {setServeur(e?.username)}} color="#4a5568" fontWeight="100" fontSize="14px" key={i+e.id}>{e.username}</MenuItem>
 						)

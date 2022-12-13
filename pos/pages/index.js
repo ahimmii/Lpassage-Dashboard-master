@@ -46,16 +46,18 @@ export default function Login() {
 			.then((res) => {
 				getUser("/api/users/me?populate=image,role")
 					.then((res) => {
-						console.log(res)
+						console.log(res.role);
 						if (res?.role?.name == "admin") {
 							router.push("/admin");
+						} else if (res?.role?.name == "stock") {
+							router.push("/stock");
 						} else {
 							router.push("/home");
 						}
 						toast({
 							render: () => (
 								<Box color='white' textAlign='center' rounded='md' p={2} bg='#2E2E2E'>
-									Welcome Back {res.first_name} 👋
+									Welcome Back {res?.first_name} 👋
 								</Box>
 							),
 							isClosable: true,
@@ -63,38 +65,42 @@ export default function Login() {
 					})
 					.catch((err) => {
 						setLoadingCheckLogin.off()
-						console.log("Need To Login");
+						console.log(console.log(err));
+						setLoading.off();
 					});
-			})
-			.catch((err) => {
-				setLoading.off();
-				toast({
-					title: err.response?.data?.error?.message || "Error to sign in!",
-					status: "error",
-					isClosable: true,
+				})
+				.catch((err) => {
+					setLoading.off();
+					toast({
+						title: err.response?.data?.error?.message || "Error to sign in!",
+						status: "error",
+						isClosable: true,
+					});
 				});
-			});
-	};
-
-	useEffect(() => {
-		getUser("/api/users/me?populate=image,role")
-			.then((res) => {
-				if (res.role.name == "admin") {
-					router.push("/admin");
-				} else
+			};
+			
+			useEffect(() => {
+				getUser("/api/users/me?populate=image,role")
+				.then((res) => {
+					if (res?.role?.name == "admin") {
+						router.push("/admin");
+					} else if (res?.role?.name == "stock") {
+						router.push("/stock");
+					} else
 					router.push("/home");
-				toast({
-					render: () => (
-						<Box color='white' textAlign='center' rounded='md' p={2} bg='#2E2E2E'>
-							Welcome Back {res.first_name} 👋
+					toast({
+						render: () => (
+							<Box color='white' textAlign='center' rounded='md' p={2} bg='#2E2E2E'>
+							Welcome Back {res?.first_name} 👋
 						</Box>
 					),
 					isClosable: true,
 				});
 			})
 			.catch((err) => {
+				console.log(err);
+				setLoading.off();
                 setLoadingCheckLogin.off()
-				console.log("Need To Login");
 			});
 	}, []);
 

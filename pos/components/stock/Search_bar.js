@@ -6,7 +6,7 @@ import { ActionIcon, Button } from '@mantine/core';
 
 function Search_bar({ data, value, setValue }) {
 	useEffect(() => {
-		console.log(value);
+		// console.log(value);
 	}, [value]);
 
 	return (
@@ -66,7 +66,7 @@ function Search_bar({ data, value, setValue }) {
 			{/* button save changes */}
 			<Button type='button' variant='outline' color='orange' style={{ height: '39px', borderRadius: "10px" }}
                     onClick={() => {
-                        console.log(data)
+                        // console.log(data)
                     }}>
 				Enregistrer
 			</Button>

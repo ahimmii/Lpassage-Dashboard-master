@@ -1,0 +1,466 @@
+{
+    "data": [
+        {
+            "value": "Poulet",
+            "key": 8,
+            "qte": 10000,
+            "prix_par_unite": 50,
+            "unit": "g",
+            "barCode": 2,
+            "qte_reste": null
+        },
+        {
+            "value": "Dinde fumée",
+            "key": 11,
+            "qte": 7,
+            "prix_par_unite": 75,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Frites",
+            "key": 12,
+            "qte": 0,
+            "prix_par_unite": 17,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Crème fraiche",
+            "key": 13,
+            "qte": 0,
+            "prix_par_unite": 28,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Viande hachée",
+            "key": 14,
+            "qte": 0,
+            "prix_par_unite": 70,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Farine",
+            "key": 15,
+            "qte": 0,
+            "prix_par_unite": 3.8,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Chaplure",
+            "key": 16,
+            "qte": 0,
+            "prix_par_unite": 22,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Cheddar",
+            "key": 17,
+            "qte": 0,
+            "prix_par_unite": 90,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Calamar",
+            "key": 18,
+            "qte": 0,
+            "prix_par_unite": 60,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Oeuf",
+            "key": 19,
+            "qte": 0,
+            "prix_par_unite": 1,
+            "unit": "Ps",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Veloute",
+            "key": 20,
+            "qte": 0,
+            "prix_par_unite": 9,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Pilon",
+            "key": 21,
+            "qte": 0,
+            "prix_par_unite": 30,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "huile de table",
+            "key": 22,
+            "qte": 0,
+            "prix_par_unite": 20,
+            "unit": "cl",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Haut Cuisse",
+            "key": 23,
+            "qte": 0,
+            "prix_par_unite": 30,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Salade verte",
+            "key": 24,
+            "qte": 0,
+            "prix_par_unite": 10,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Tomates",
+            "key": 25,
+            "qte": 0,
+            "prix_par_unite": 6,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Oignons",
+            "key": 26,
+            "qte": 0,
+            "prix_par_unite": 6,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Poivron",
+            "key": 27,
+            "qte": 0,
+            "prix_par_unite": 6,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Vinaigrette",
+            "key": 28,
+            "qte": 0,
+            "prix_par_unite": 4,
+            "unit": "cl",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Vermisselle",
+            "key": 29,
+            "qte": 0,
+            "prix_par_unite": 50,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Mozarella",
+            "key": 30,
+            "qte": 0,
+            "prix_par_unite": 57,
+            "unit": "Mozarella",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Sauce mayonnaise",
+            "key": 31,
+            "qte": 0,
+            "prix_par_unite": 18,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Charcuterie",
+            "key": 32,
+            "qte": 0,
+            "prix_par_unite": 65,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Sauce pesto",
+            "key": 33,
+            "qte": 0,
+            "prix_par_unite": 30,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Seffa",
+            "key": 34,
+            "qte": 0,
+            "prix_par_unite": 13,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Fromage",
+            "key": 35
+        },
+        {
+            "value": "Pain sandowich",
+            "key": 36,
+            "qte": 0,
+            "prix_par_unite": 0,
+            "unit": "Ps",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Pain burger",
+            "key": 37,
+            "qte": 0,
+            "prix_par_unite": 0,
+            "unit": "Ps",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Chicken burger",
+            "key": 38,
+            "qte": 0,
+            "prix_par_unite": 0,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Sauce biggy",
+            "key": 39,
+            "qte": 0,
+            "prix_par_unite": 30,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Pain Tacos",
+            "key": 40,
+            "qte": 0,
+            "prix_par_unite": 1.75,
+            "unit": "Ps",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Epices",
+            "key": 41,
+            "qte": 0,
+            "prix_par_unite": 70,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Champignon frais",
+            "key": 42,
+            "qte": 0,
+            "prix_par_unite": 50,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Olive",
+            "key": 43,
+            "qte": 0,
+            "prix_par_unite": 18,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Pate pizza",
+            "key": 44,
+            "qte": 0,
+            "prix_par_unite": 20,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Sauce Tacos",
+            "key": 45,
+            "qte": 0,
+            "prix_par_unite": 0,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Sauce Fromagere",
+            "key": 46,
+            "qte": 0,
+            "prix_par_unite": 12,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Pomme de terre",
+            "key": 47,
+            "qte": 0,
+            "prix_par_unite": 6,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Poivron",
+            "key": 48,
+            "qte": 0,
+            "prix_par_unite": 6,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "sel",
+            "key": 49,
+            "qte": 0,
+            "prix_par_unite": 3,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "poivre",
+            "key": 50,
+            "qte": 0,
+            "prix_par_unite": 70,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "ail",
+            "key": 51,
+            "qte": 0,
+            "prix_par_unite": 25,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Gingembre",
+            "key": 55,
+            "qte": 0,
+            "prix_par_unite": 70,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Persil",
+            "key": 56,
+            "qte": 0,
+            "prix_par_unite": 10,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Pates",
+            "key": 57,
+            "qte": 0,
+            "prix_par_unite": 12,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Soja",
+            "key": 58,
+            "qte": 0,
+            "prix_par_unite": 20,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Crevette Grise",
+            "key": 59,
+            "qte": 0,
+            "prix_par_unite": 75,
+            "unit": "g",
+            "barCode": null,
+            "qte_reste": null
+        },
+        {
+            "value": "Sauce Tomates",
+            "key": 60
+        },
+        {
+            "value": "Fruit De Mer",
+            "key": 61
+        },
+        {
+            "value": "Lait",
+            "key": 62
+        },
+        {
+            "value": "Muscade",
+            "key": 63
+        },
+        {
+            "value": "creme",
+            "key": 64
+        },
+        {
+            "value": "Vermicelle",
+            "key": 65
+        },
+        {
+            "value": "Beurre",
+            "key": 66
+        },
+        {
+            "value": "sucre glace",
+            "key": 67
+        },
+        {
+            "value": "cannelle",
+            "key": 68
+        },
+        {
+            "value": "Pain Shawarma",
+            "key": 69
+        },
+        {
+            "value": "Oeufs",
+            "key": 70
+        }
+    ]
+}

@@ -16,24 +16,20 @@ import TableInfo2 from '../components/admin/Tableinfo2';
 import MenuServeurs from '../components/admin/MenuServeurs';
 
 export default function Admin() {
-	const router = useRouter();
 	const [Loading, setLoading] = useBoolean(true);
 	const [LoadingData, setLoadingData] = useBoolean(false);
 	const toast = useToast();
 	const [date, setDate] = useState([new Date(), new Date()]);
-	const [tableList, setTableList] = useState([]);
-	const [orders, setOrders] = useState([]);
-	const [ordersPrix, setOrdersPrix] = useState(0);
 	const [natures, setNatures] = useState([]);
 	const [nature, setNature] = useState('ALL');
-	const [prodects, setProdects] = useState([]);
 	const [users, setUsers] = useState([]);
+	const [categories, setCategories] = useState([]);
 	const [tabIndex, setTabIndex] = useState(0);
 	const [serveur, setServeur] = useState('ALL');
-
 	const [matierePremiere, setMatierePremiere] = useState([]);
 	const [total_orders, setTotal_orders] = useState(0);
 	const [revenue, setRevenue] = useState(0);
+	const [total_plats, setTotal_plats] = useState(0);
 
 	useEffect(() => {
 		if (date[0] && date[1]) {
@@ -61,7 +57,6 @@ export default function Admin() {
 				setNatures(res.data);
 			})
 			.catch((err) => {
-				setOrders(err.data);
 				toast({
 					title: err.message,
 					status: 'error',
@@ -83,6 +78,17 @@ export default function Admin() {
 		Get_Data('/api/users')
 			.then((res) => {
 				setUsers(res);
+			})
+			.catch((err) => {
+				toast({
+					title: err.message,
+					status: 'error',
+					isClosable: true,
+				});
+			});
+		Get_Data('/api/categories')
+			.then((res) => {
+				setCategories(res);
 			})
 			.catch((err) => {
 				toast({
@@ -130,14 +136,11 @@ export default function Admin() {
 										<TabPanels mt='-20px'>
 											<TabPanel>
 												<TableInfo
-													revenue={revenue}
-													total_orders={total_orders}
-													matierePremiere={matierePremiere}
-													numOrders={orders.length}
-													natures={natures}
+													total_plats={total_plats}
 													nature={nature}
-													tableList={tableList}
-													ordersPrix={ordersPrix}
+													matierePremiere={matierePremiere}
+													total_orders={total_orders}
+													revenue={revenue}
 												/>
 											</TabPanel>
 											<TabPanel>
@@ -146,15 +149,10 @@ export default function Admin() {
 													<MenuIngredients nature={nature} setNature={setNature} natures={natures} />
 												</Stack>*/}
 												<TableInfo2
+													total_orders={total_orders}
+													setTotal_plats={setTotal_plats}
 													date={date}
-													users={users}
-													orders={orders}
-													prodects={prodects}
-													numOrders={orders.length}
 													serveur={serveur}
-													tableList={tableList}
-													ordersPrix={ordersPrix}
-													setLoadingData={setLoadingData}
 												/>
 											</TabPanel>
 										</TabPanels>

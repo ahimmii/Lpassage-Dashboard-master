@@ -8,11 +8,13 @@ let post_data = function (path, data) {
            headers: { Authorization: `Bearer ${localStorage.getItem('lpasSage_token')}` },
            withCredentials: true
         };
+        console.log(data)
         axios
         	.post(`${backEndUrl}${path}`, {data: data}, config)
         	.then(function (response) {
         		// handle success
                 res(response);
+                console.log(response);
         	})
         	.catch(function (error) {
         		// handle error

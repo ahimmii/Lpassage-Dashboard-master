@@ -102,9 +102,16 @@ module.exports = {
 		  await ingredients?.forEach(ing => {
 			  //console.log(ing)
 			  for (let key in ing) {
-				  ing[key].qte_restante = ing[key].stock.qte - ing[key].qte_consommee;
-				  
-				  ing[key].qte_restante_en_dhs = ing[key].stock.prix - ing[key].le_cout;
+				  	if (ing[key].stock.qte <= 0 && ing[key].qte_restante_en_dhs <= 0 || ing[key].stock.qte == null && ing[key].qte_restante_en_dhs == null)
+					{
+				  		ing[key].qte_restante = 0;
+						ing[key].qte_restante_en_dhs = 0;
+					}	
+					else
+					{
+				  		ing[key].qte_restante = ing[key].stock.qte - ing[key].qte_consommee;
+				  		ing[key].qte_restante_en_dhs = ing[key].stock.prix - ing[key].le_cout;
+					}
   
 				  if (ing[key].qte_restante_en_dhs > 0 && ing[key].qte_restante > 0)
 				  ing[key].ratio_matiere = (ing[key].qte_restante_en_dhs / ing[key].qte_restante) * 100;

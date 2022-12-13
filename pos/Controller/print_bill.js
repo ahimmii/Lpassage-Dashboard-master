@@ -1,4 +1,4 @@
-const number_phone= "+212 5 32 90 00 06";
+const number_phone= "+212 8 08 51 23 87";
 
 export function print_bill(order, profile) {
     var windowToPrint=window.open('','','width=200,height=400');
@@ -30,8 +30,12 @@ export function print_bill(order, profile) {
 
     windowToPrint.document.write(`
         <style>
-            th, td {
-                border-bottom: 3px solid black;
+            th {
+                border-bottom: 4px solid black;
+                text-align: center;
+            }
+            td {
+                border-bottom: 2px solid black;
                 text-align: center;
             }
         </style>
@@ -40,13 +44,22 @@ export function print_bill(order, profile) {
                 <h1 style="font-size: 18px; padding-left: 6px;">L'PasSage</h1>
                 </div>
             <p style="font-size: 15px; margin-top: 1px">
+                </br>
                 ${number_phone}
                 </br>
-                81 bis, Boulevard Mohammed Zerktouni
+                LOT 792, lotissement al karaouiyine
                 </br>
-                (ex rue de cuny)
+                route Ain chkef Fes
                 </br>
-                ${d.toLocaleDateString() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()}</p>
+		${d.toLocaleDateString() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()}
+		</br>
+		${profile?.Username}
+                ${order.attributes.place_de_consomation[0].name == "Sur table" ? `
+                <div style="margin-top: 5px; font-size: 12px; font-weight: 800;">
+                    <p style="margin-bottom: 5px;">Num Table: ${order.attributes.place_de_consomation[0].tableId}</p>
+                </div>
+            ` : ""}
+                </p>
         </div>
         <div style="padding: 10px; border-radius: 10px; padding-top: 2px;">
             <table style="width: 100%;">
@@ -58,12 +71,14 @@ export function print_bill(order, profile) {
                 ${all_plats}
                 <tfoot style="font-size: 16px; font-weight: 800; border-bottom: 0;">
                     <tr>
-                        <td style="border-bottom: 0;">Total: </td>
-                        <td style="border-bottom: 0;">${total_qte}</td>
-                        <td style="border-bottom: 0;">${order?.attributes?.total_price.toFixed(2)} DH</td>
+                        <th style="padding: 5px">Total: </th>
+                        <th style="padding: 5px">${total_qte}</th>
+                        <th style="padding: 5px">${order?.attributes?.total_price.toFixed(2)} DH</th>
                     </tr>
                 </tfoot>
             </table>
+
+            
 
             ${order.attributes.place_de_consomation[0].name == "Livrasion" ? `
                 <div style="margin-top: 5px; font-size: 16px; font-weight: 800; border: 2px solid black; padding: 10px; border-radius: 15px">
@@ -73,8 +88,8 @@ export function print_bill(order, profile) {
                 </div>
             ` : ""}
             
-            <div style="font-size: 19px; font-weight: 800; width: 100%; text-align: center;">
-                ${profile?.Username}
+            <div style="font-size: 10px; font-weight: 800; width: 100%; text-align: center;">
+                <p style="margin-bottom: 5px;"> MERCI DE VOTRE VISITE </p>
             </div>
         </div>
     `);

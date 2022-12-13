@@ -1,4 +1,4 @@
-import { Grid, Spinner, Stack, GridItem } from '@chakra-ui/react';
+import { Grid, Spinner, Stack, GridItem, SimpleGrid } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import getOrders from '../../controller/getOrders';
@@ -10,43 +10,67 @@ import { backEndUrl } from '../../controller/urls.token';
 const ListCards = ({ socket, thereIsToken, getOrdersData, orders, connect, setOrders }) => {
 
 	useEffect(() => {
-	    if (socket) {
-	        socket.on("newOrder", (newOrder) => {
+		if (socket) {
+			socket.on("newOrder", (newOrder) => {
 				getOrdersData();
-	        })
-	    }
+			})
+		}
 	}, [socket])
 
 	useEffect(() => {
 		getOrdersData();
 	}, [connect, thereIsToken]);
 
+	let i = 1;
+	let x = 0;
+
+	// if (orders.length)
+	// 	console.log(orders.length)
+
+
 	return orders.length > 0 ? (
-		<Grid
+
+		<SimpleGrid
 			id='Header'
+			// display='flex'
+			// flexDirection='column-reverse'
 			boxShadow='base'
 			rounded='2xl'
-			p={2}
-			w='full'
-			gap={4}
-			templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', '2xl': 'repeat(4, 1fr)' }}
+			p={1}
+			autoRows='auto'
+			autoColumns='auto'
+			gap={3}
+			alignItems='start'
+			templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(1, 1fr)', md: 'repeat(1, 1fr)', '2xl': 'repeat(5, 1fr)' }}
+			templateRows='[header] 350px [footer] start [main-start main-end] 1fr'
 		>
 			{orders?.map((el, i) => {
 				return (
-					<GridItem id='Header' key={el?.id || i} boxShadow='base' rounded='xl' w='full' transition='5s ease'>
+					<>
+					{el?.attributes?.plats?.map((plat, i) => {
+					return(
+					// {console.log("this "+plat.name)}
+					<GridItem id='Header' boxShadow='base' rounded='xl' w='full' transition='5s ease'>
 						<Card
 							getOrdersData={getOrdersData}
 							orders={el}
+							plat = {i}
 							color={
 								Colors[
-									Number(String(el?.id).substring(String(el?.id).length - 4, String(el?.id).length)) % colorsLength
+								Number(String(el?.id).substring(String(el?.id).length - 1, String(el?.id).length)) % colorsLength
 								]
 							}
 						/>
 					</GridItem>
+					);
+					})}
+					</>
 				);
 			})}
-		</Grid>
+
+
+		</SimpleGrid>
+
 	) : (
 		<Stack w='full' minH='80vh' justifyContent='center' alignItems='center'>
 			<Spinner color='orange.500' size="xl" thickness='5px' />

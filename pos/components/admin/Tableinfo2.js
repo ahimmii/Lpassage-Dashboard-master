@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Stat, StatLabel, StatNumber, StatHelpText, StatArrow, StatGroup } from "@chakra-ui/react";
 import post_data from "../../Controller/postData";
 
-function TableInfo2({ ordersPrix, numOrders, orders, prodects, users, serveur, date}) {
+function TableInfo2({ serveur, date, setTotal_plats, total_orders}) {
 	// set every orders to the product
 
 	const [data, setData] = useState([]);
@@ -18,6 +18,7 @@ function TableInfo2({ ordersPrix, numOrders, orders, prodects, users, serveur, d
 				gte: date[0].toISOString(),
 				lte: date[1].toISOString(),
 			}).then((res) => {
+				console.log(res)
 				setResponse(res.data.data);
 				setTotal(res.data.total_revunue);
 			}).catch((err) => {
@@ -48,6 +49,7 @@ function TableInfo2({ ordersPrix, numOrders, orders, prodects, users, serveur, d
 				}
 			});
 		})
+		setTotal_plats(total_orders);
 		return [data, total_ratio, total_price, total_orders];
 	}
 
@@ -61,6 +63,10 @@ function TableInfo2({ ordersPrix, numOrders, orders, prodects, users, serveur, d
 				<Stat>
 					<StatLabel>Total</StatLabel>
 					<StatNumber>{data[2]?.toFixed(2)} DH</StatNumber>
+				</Stat>
+				<Stat>
+					<StatLabel>Le total des commandes:</StatLabel>
+					<StatNumber>{total_orders}</StatNumber>
 				</Stat>
 				<Stat>
 					<StatLabel>Total des plats:</StatLabel>

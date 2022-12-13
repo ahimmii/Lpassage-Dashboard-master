@@ -1,34 +1,8 @@
 import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableContainer, Stack, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
 
 import { Stat, StatLabel, StatNumber, StatHelpText, StatArrow, StatGroup } from '@chakra-ui/react';
 
-function TableInfo({ tableList, ordersPrix, nature, numOrders, matierePremiere, total_orders, revenue }) {
-	//const [total, setTotal] = useState([{
-	//	QteTH: 0,
-	//	CoutTH: 0,
-	//	QteFinalTH: 0,
-	//	CoutFinalTH: 0,
-	//	Th: 0
-	//}]);
-
-	//useEffect(() => {
-	//	let total = {
-	//		QteTH: 0,
-	//		CoutTH: 0,
-	//		QteFinalTH: 0,
-	//		CoutFinalTH: 0,
-	//		thPerce: 0
-	//	};
-	//	tableList.forEach((item) => {
-	//		total.QteTH += item.Quantites;
-	//		total.CoutTH += item.Prix;
-	//		total.QteFinalTH += (Number(item.StockQuantite) - Number(item.Quantites));
-	//		total.CoutFinalTH += (Number(item.StockQuantitePrix) - Number(item.Prix));
-	//		total.thPerce += ((Number(item.Prix) / Number(ordersPrix)) * 100);
-	//	});
-	//	setTotal(total);
-	//}, [tableList, ordersPrix]);
+function TableInfo({ nature, matierePremiere, total_orders, revenue, total_plats }) {
 
 	const total_cout = () => {
 		let total_cout = 0;
@@ -68,6 +42,10 @@ function TableInfo({ tableList, ordersPrix, nature, numOrders, matierePremiere, 
 					<StatLabel>Le total des commandes:</StatLabel>
 					<StatNumber>{total_orders}</StatNumber>
 				</Stat>
+				<Stat>
+					<StatLabel>Total des plats:</StatLabel>
+					<StatNumber>{total_plats}</StatNumber>
+				</Stat>
 			</StatGroup>
 
 			<Table variant='simple' size='md'>
@@ -95,7 +73,6 @@ function TableInfo({ tableList, ordersPrix, nature, numOrders, matierePremiere, 
 				</Thead>
 				<Tbody>
 					{matierePremiere.map((e, i) => {
-						//console.log(e[Object.keys(e)[0]]?.qte_consommee)
 
 						if (e[Object.keys(e)[0]]?.nature == nature || nature == "ALL")
 						return (
@@ -115,12 +92,6 @@ function TableInfo({ tableList, ordersPrix, nature, numOrders, matierePremiere, 
 								</Td>
 								<Td fontSize='14px' isNumeric>
 									{
-										//((Number(e[Object.keys(e)[0]]?.qte_consommee)) && Number(e[Object.keys(e)[0]].stock.qte)) ? (
-										//	((Number(e[Object.keys(e)[0]]?.qte_consommee)) / Number(e[Object.keys(e)[0]].stock.qte) * 100)
-										//) : (
-										//	"0"
-										//)
-
 										((Number(e[Object.keys(e)[0]]?.le_cout).toFixed(2)) && revenue.toFixed(2)) ? (
 											(Number(e[Object.keys(e)[0]]?.le_cout) / revenue * 100).toFixed(2)
 										) : (

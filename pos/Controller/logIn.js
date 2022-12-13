@@ -8,7 +8,6 @@ const logIn = (data) => {
             .then( (response) => {
 		        res(response.data);
                 localStorage.setItem('lpasSage_token', response.data.jwt);
-				console.log(response.data.jwt)
 		    }).catch( (error) => {
 		        rej(error);
 		    });

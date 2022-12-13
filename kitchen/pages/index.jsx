@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Grid, GridItem, SimpleGrid } from '@chakra-ui/react';
 import Head from "next/head";
 import { Text, Button, Input, useToast, Stack, Image } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -13,11 +14,11 @@ import getOrders from "../controller/getOrders";
 import axios from "axios";
 import { Spinner } from "@chakra-ui/react";
 
-function Home({socket, connect}) {
-	
+function Home({ socket, connect }) {
+
 	const [orders, setOrders] = useState([]);
 	const router = useRouter();
-	
+
 	useEffect(() => {
 		if (socket) {
 			socket.on("orderStatusUpdated", (data) => {
@@ -31,15 +32,15 @@ function Home({socket, connect}) {
 	}, [socket]);
 
 
-    const getOrdersData = () => {
-        getOrders(
-            "/api/orders?sort=createdAt:asc&filters[order_status][$eq]=1&populate[user]=*&populate[plats][populate][sauces][populate][image]=*&populate[plats][populate][juses][populate][image]=*&populate[plats][populate][choix_accompagnements][populate][image]=*&populate[plats][populate]=categories"
-        ).then((res) => {
-            setOrders(res.data);
-        }).catch((err) => {
-            console.log("error: ", err.response)
-        });
-    }
+	const getOrdersData = () => {
+		getOrders(
+			"/api/orders?sort=createdAt:asc&filters[order_status][$eq]=1&populate[user]=*&populate[plats][populate][sauces][populate][image]=*&populate[plats][populate][juses][populate][image]=*&populate[plats][populate][choix_accompagnements][populate][image]=*&populate[plats][populate]=categories"
+		).then((res) => {
+			setOrders(res.data);
+		}).catch((err) => {
+			console.log("error: ", err.response)
+		});
+	}
 
 	const [thereIsToken, setThereIsToken] = useState(false);
 	const indentifyRef = useRef(null);
@@ -56,7 +57,7 @@ function Home({socket, connect}) {
 			getOrdersData();
 			router.reload();
 		}).catch((err) => {
-			Toast({	
+			Toast({
 				title: "Error",
 				description: err?.response?.data?.error?.message || "Wrong username or password",
 				status: "error",
@@ -94,51 +95,68 @@ function Home({socket, connect}) {
 	console.log(connect);
 
 	return (
-			<>
-				<Head>
-					<title>{"L'PassSage"}</title>
-				</Head>
-				<Header />
-				{
-					(connect || thereIsToken == false) ? (
-						thereIsToken == false ? (
-							<Stack p={5} minH='80vh' pt='20vh' justifyContent='center' alignItems='center'>
-									{
-										loading == 2 ? (
-											<Stack w='50%' alignItems='center' shadow='base' p={5} rounded='md' spacing={4}>
-												<Image src='/Images/icons/key.svg' w='100px' shadow='inner' rounded='full' p={4} />
-												<Input ref={indentifyRef} placeholder='indentify' />
-												<Input ref={passwordRef} placeholder='password' type="password"/>
-												<Button
-													w='full'
-													onClick={() => {
-														login();
-													}}
-												>
-													Se connecter
-												</Button>
-											</Stack>
-										)  : (
-											<>
-												<Spinner color='orange.500' size="xl" thickness='5px'/>
-												<Text>Verification de la connexion...</Text>
-											</>
-										)
-									}
-							</Stack>
-						) : (
-							<Stack p={5} minH='80vh' pt='75px'>
-								<ListCards getOrdersData={getOrdersData} setOrders={setOrders} orders={orders} connect={connect} thereIsToken={thereIsToken} socket={socket} />
-							</Stack>
-						)		
+		<>
+			<Head>
+				<title>{"L'PassSage"}</title>
+			</Head>
+			<Header />
+			{
+				(connect || thereIsToken == false) ? (
+					thereIsToken == false ? (
+						<Stack p={5} minH='80vh' pt='20vh' justifyContent='center' alignItems='center'>
+							{
+								loading == 2 ? (
+									<Stack w='50%' alignItems='center' shadow='base' p={5} rounded='md' spacing={4}>
+										<Image src='/Images/icons/key.svg' w='100px' shadow='inner' rounded='full' p={4} />
+										<Input ref={indentifyRef} placeholder='indentify' />
+										<Input ref={passwordRef} placeholder='password' type="password" />
+										<Button
+											w='full'
+											onClick={() => {
+												login();
+											}}
+										>
+											Se connecter
+										</Button>
+									</Stack>
+								) : (
+									<>
+										<Spinner color='orange.500' size="xl" thickness='5px' />
+										<Text>Verification de la connexion...</Text>
+									</>
+								)
+							}
+						</Stack>
 					) : (
-						<Stack p={5} minH='100vh' justifyContent='center' alignItems='center' pt='75px'>
-							<Spinner color='orange.500' size="xl" thickness='5px'/>
-							<Text fontSize='16px'>Connexion au serveur</Text>
-						</Stack>	
+						<Stack p={5} minH='80vh' pt='75px'>
+							{/* <SimpleGrid
+								id='Header'
+								// display='flex'
+								// flexDirection='column-reverse'
+								boxShadow='base'
+								rounded='2xl'
+								p={1}
+								autoRows='auto'
+								autoFlow='column'
+								gap={3}
+								alignItems='start'
+								templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(1, 1fr)', md: 'repeat(1, 1fr)', '2xl': 'repeat(6, 1fr)' }}
+								templateRows='[header] 350px [footer] start [main-start main-end] 1fr'
+							> */}
+								{/* <GridItem id='Header' boxShadow='base' rounded='xl' w='full' transition='5s ease'> */}
+								<ListCards getOrdersData={getOrdersData} setOrders={setOrders} orders={orders} connect={connect} thereIsToken={thereIsToken} socket={socket} />
+								{/* </GridItem> */}
+							{/* </SimpleGrid> */}
+						</Stack>
 					)
-				}
-			</>
+				) : (
+					<Stack p={5} minH='100vh' justifyContent='center' alignItems='center' pt='75px'>
+						<Spinner color='orange.500' size="xl" thickness='5px' />
+						<Text fontSize='16px'>Connexion au serveur</Text>
+					</Stack>
+				)
+			}
+		</>
 	);
 }
 
