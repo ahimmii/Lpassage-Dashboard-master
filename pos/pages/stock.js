@@ -109,7 +109,7 @@ export default function Stock() {
 				}
 			})
 			.catch((err) => {
-				window.write(err);
+				//window.write(err);
 			});
 	}, []);
 	const [valueSearch, setValueSearch] = useState('');

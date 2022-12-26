@@ -44,6 +44,7 @@ module.exports = {
 				}
 			);
 
+
 			// update stock
 			await stock[0].Ingredient.forEach((ingredient) => {
 				body.data.forEach((item) => {
@@ -54,6 +55,8 @@ module.exports = {
 						ingredient.Quantites = item.qte;
 						ingredient.prix_par_unit = item.prix_par_unite;
 						ingredient.unit = item.unit;
+						ingredient.barCodes = item.barCode;
+						ingredient.qte_restes = item.qte_reste;
 					}
 				});
 			});

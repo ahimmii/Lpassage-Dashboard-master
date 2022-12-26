@@ -35,11 +35,11 @@
       "type": "string",
       "required": true
     },
-    "barCodes": {
-      "type": "decimal"
-    },
     "qte_restes": {
       "type": "decimal"
+    },
+    "barCodes": {
+      "type": "string"
     }
   }
 }
