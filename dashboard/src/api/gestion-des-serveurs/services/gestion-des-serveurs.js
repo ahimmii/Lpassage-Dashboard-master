@@ -17,10 +17,10 @@ module.exports = {
 			},
 			populate: {
 				plats: true,
-				user: true,
+				user: true
 			},
 		});
-		console.log(orders)
+
 		// GET ALL USERS
 		const users = (await strapi?.entityService?.findMany("plugin::users-permissions.user", {})).map(el => {
 			return {
@@ -31,20 +31,9 @@ module.exports = {
 		// set all plats from orders
 		await orders?.forEach(order => {
 			order?.plats?.forEach(plat => {
-				// console.log(order)
 				plat.user = order.user
-				plat.place_de_consomation = order.place_de_consomation
 				all_plats.push(plat)
-			});
-			// order?.place_de_consomation?.forEach(test => {
-			// 	order?.plats?.forEach(plat => {
-			// 		// console.log(order)
-					
-			// 		all_plats.push(plat)
-			// 	});
-			// 	console.log(test.name)
-			// });
-		
+			})
 		})
 
 		//console.log("all_plats: ", all_plats)
@@ -59,7 +48,7 @@ module.exports = {
 			}
 	
 			titles = [...titles].map((e) => {
-				return { name: e, /*orders: new Array(),*/ CA: 0, CAT: 0, pdc: "" };
+				return { name: e, /*orders: new Array(),*/ CA: 0, CAT: 0 };
 			});
 	
 			for (let x = 0; x < users.length; x++) {
@@ -73,6 +62,7 @@ module.exports = {
 				//loop users
 				for (let o = 0; o < orders.length; o++) {
 					//loop orders
+
 					if (users[u].id == orders[o].user[0].id) {
 						for (let d_o = 0; d_o < users[u].data_orders.length; d_o++) {
 							//loop data_orders
@@ -81,7 +71,6 @@ module.exports = {
 								users[u].data_orders[d_o].CA += orders[o].price * orders[o].qte;
 								users[u].data_orders[d_o].CAT += orders[o].qte;
 								total_revunue += orders[o].price * orders[o].qte;
-								users[u].data_orders[d_o].pdc = orders[o].place_de_consomation[0].name
 								break;
 							}
 						}

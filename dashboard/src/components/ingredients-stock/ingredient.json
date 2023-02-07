@@ -34,12 +34,6 @@
     "unit": {
       "type": "string",
       "required": true
-    },
-    "qte_restes": {
-      "type": "decimal"
-    },
-    "barCodes": {
-      "type": "string"
     }
   }
 }
