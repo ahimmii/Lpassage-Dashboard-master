@@ -23,6 +23,34 @@ module.exports = {
 		}
 	},
 
+	findStock: async (body) => {
+		try {
+			
+			const stock = await strapi?.entityService?.findMany(
+				"api::ingredient-stock.ingredient-stock",
+				{
+					filters: {
+						createdAt: {
+							$gte: body.data.gte,
+							$lte: body.data.lte
+						},
+					},
+					populate: {
+						Ingredient: true,
+					},
+					// sort be creating time
+					sort: "createdAt:asc",
+					// get just one element
+				}
+			);
+			return {
+				data: stock,
+			};
+		} catch (err) {
+			return err;
+		}
+	},
+
 	updateStock: async (body) => {
 		try {
 			// body example:
@@ -44,6 +72,7 @@ module.exports = {
 				}
 			);
 
+
 			// update stock
 			await stock[0].Ingredient.forEach((ingredient) => {
 				body.data.forEach((item) => {
@@ -54,6 +83,8 @@ module.exports = {
 						ingredient.Quantites = item.qte;
 						ingredient.prix_par_unit = item.prix_par_unite;
 						ingredient.unit = item.unit;
+						ingredient.barCodes = item.barCode;
+						ingredient.qte_restes = item.qte_reste;
 					}
 				});
 			});

@@ -37,7 +37,7 @@ export default function Stock() {
 					});
 				}
 			})
-			.catch((err) => {
+			.catch(() => {
 				toast({
 					title: 'Erreur',
 					description: 'Une erreur est survenue lors de la mise à jour du stock',
@@ -68,6 +68,7 @@ export default function Stock() {
 						res?.data?.forEach((item) => {
 							datas?.forEach((ingredient) => {
 								if (ingredient.value == item.name) {
+									ingredient.id = item.id;
 									ingredient.qte = item.Quantites;
 									ingredient.prix_par_unite = item.prix_par_unit;
 									ingredient.unit = item.unit;

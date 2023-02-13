@@ -14,6 +14,7 @@ import {
 
 const ModalMenu = ({ onClose, isOpen, children, title, next, toCenter, disablebtn }) => {
 	return (
+		
 		<Modal
 			size={toCenter != undefined && toCenter == true ? { base: "xs", md: "xl" } : { base: "xs", md: "xl", xl: "3xl" }}
 			isCentered

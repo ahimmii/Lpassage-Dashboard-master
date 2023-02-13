@@ -41,9 +41,10 @@ function Table_stock({ data, filter, setData, setDataChanged }) {
 	useEffect(() => {
 		setRows(
 			data.map((element, index) => {
-				if (filter === '' || element?.value.toLowerCase().includes(filter?.toLowerCase().trim()) || element?.barCode && element?.barCode.toLowerCase().includes(filter?.toLowerCase().trim())) {
+				if (filter === '' || element?.value.toLowerCase().includes(filter?.toLowerCase().trim())) {
 					return (
 						<tr key={element.key}>
+							
 							<td style={{ fontSize: '14px', textAlign: 'left' }}>
 								<Text>{element.value}</Text>
 								<Text color='gray.400' fontSize='12px'>

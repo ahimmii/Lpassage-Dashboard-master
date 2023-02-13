@@ -32,7 +32,7 @@ function TableInfo2({ serveur, date, setTotal_plats, total_orders}) {
                 let total_orders = 0;
                 let data = resposne?.map((item, index) => {
                         return item.data_orders.map((item2, index2) => {
-                                console.log(item2);
+                                // console.log(item2);
                                 if (item2.CAT && (serveur == item2.pdc || serveur == "ALL")) {
                                         let ratio = (Number(item2.CA) / total * 100);
                                         total_ratio += Number(ratio);

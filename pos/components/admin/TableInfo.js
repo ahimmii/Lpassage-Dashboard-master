@@ -60,7 +60,7 @@ function TableInfo({ nature, matierePremiere, total_orders, revenue, total_plats
                                                 <Th color='white' fontSize='14px' isNumeric>
                                                         Le coût
                                                 </Th>
-												<Th color='white' fontSize='14px' isNumeric>
+                                                <Th color='white' fontSize='14px' isNumeric>
                                                         Qte restante
                                                 </Th>
                                                 <Th color='white' fontSize='14px' isNumeric>
@@ -73,35 +73,37 @@ function TableInfo({ nature, matierePremiere, total_orders, revenue, total_plats
                                 </Thead>
                                 <Tbody>
                                         {matierePremiere.map((e, i) => {
+                                                // console.log(e)
 
                                                 if (e[Object.keys(e)[0]]?.nature == nature || nature == "ALL")
-                                                return (
-                                                        <Tr key={i}>
-                                                                <Td fontSize='14px'>{Object.keys(e)[0]}</Td>
-                                                                <Td fontSize='14px' isNumeric>
-                                                                        {String(e[Object.keys(e)[0]]?.qte_consommee) + e[Object.keys(e)[0]]?.unite}
-                                                                </Td>
-                                                                <Td fontSize='14px' isNumeric>
-                                                                        {String(Number(e[Object.keys(e)[0]]?.le_cout).toFixed(2)) + ' DH'}
-                                                                </Td>
-                                                                <Td fontSize='14px' isNumeric>
-                                                                        {(e[Object.keys(e)[0]]?.qte_restante).toFixed(2) + e[Object.keys(e)[0]]?.unite}
-                                                                </Td>
-                                                                <Td fontSize='14px' isNumeric>
-                                                                        {String((e[Object.keys(e)[0]]?.qte_restante_en_dhs).toFixed(2)) + ' DH'}
-                                                                </Td>
-                                                                <Td fontSize='14px' isNumeric>
-                                                                        {
-                                                                                ((Number(e[Object.keys(e)[0]]?.le_cout).toFixed(2)) && revenue.toFixed(2)) ? (
-                                                                                        (Number(e[Object.keys(e)[0]]?.le_cout) / revenue * 100).toFixed(2)
-                                                                                ) : (
-                                                                                        "0"
-                                                                                )
+                                                        // console.log(i)
+                                                        return (
+                                                                <Tr key={i}>
+                                                                        <Td fontSize='14px'>{Object.keys(e)[0]}</Td>
+                                                                        <Td fontSize='14px' isNumeric>
+                                                                                {String(e[Object.keys(e)[0]]?.qte_consommee) + e[Object.keys(e)[0]]?.unite}
+                                                                        </Td>
+                                                                        <Td fontSize='14px' isNumeric>
+                                                                                {String(Number(e[Object.keys(e)[0]]?.le_cout).toFixed(2)) + ' DH'}
+                                                                        </Td>
+                                                                        <Td fontSize='14px' isNumeric>
+                                                                                {(e[Object.keys(e)[0]]?.qte_restante).toFixed(2) + e[Object.keys(e)[0]]?.unite}
+                                                                        </Td>
+                                                                        <Td fontSize='14px' isNumeric>
+                                                                                {String((e[Object.keys(e)[0]]?.qte_restante_en_dhs).toFixed(2)) + ' DH'}
+                                                                        </Td>
+                                                                        <Td fontSize='14px' isNumeric>
+                                                                                {
+                                                                                        ((Number(e[Object.keys(e)[0]]?.le_cout).toFixed(2)) && revenue.toFixed(2)) ? (
+                                                                                                (Number(e[Object.keys(e)[0]]?.le_cout) / revenue * 100).toFixed(2)
+                                                                                        ) : (
+                                                                                                "0"
+                                                                                        )
 
-                                                                        } %
-                                                                </Td>
-                                                        </Tr>
-                                                );
+                                                                                } %
+                                                                        </Td>
+                                                                </Tr>
+                                                        );
                                         })}
                                 </Tbody>
                                 <Tfoot>
@@ -122,7 +124,7 @@ function TableInfo({ nature, matierePremiere, total_orders, revenue, total_plats
                                                 </Th>
                                         </Tr>
                                 </Tfoot>
-								</Table>
+                        </Table>
                 </TableContainer>
         );
 }

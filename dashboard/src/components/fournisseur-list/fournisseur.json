@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_fournisseur_list_fournisseurs",
+  "info": {
+    "displayName": "fournisseur",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Montant": {
+      "type": "integer"
+    },
+    "Total": {
+      "type": "decimal",
+      "default": 0
+    }
+  }
+}

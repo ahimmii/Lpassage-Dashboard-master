@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "table_fournisseurs",
+  "info": {
+    "singularName": "table-fournisseur",
+    "pluralName": "table-fournisseurs",
+    "displayName": "table fournisseur"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fournisseur": {
+      "type": "dynamiczone",
+      "components": [
+        "fournisseur-list.fournisseur"
+      ]
+    }
+  }
+}
